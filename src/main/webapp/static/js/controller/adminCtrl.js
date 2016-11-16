@@ -3,6 +3,8 @@ angular.module('appCtrl').controller('AdminController',['$scope', '$http', '$loc
 	var baseUrl = $location.absUrl().split('#')[0];
     var REST_SERVICE_URI = baseUrl+'login/';
     console.log(REST_SERVICE_URI);
+    
+    $scope.positions = ['All','QB','RB','WR','TE','DEF','K'];
 	
 /*	$scope.loginModel = [];
 	$scope.login = function(){

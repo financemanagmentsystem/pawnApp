@@ -1,4 +1,4 @@
-angular.module('appCtrl', ['ngCookies','ngResource','ngSanitize', 'angular-loading-bar', 'ngRoute', 'checklist-model','gridster', 'ngDragDrop','ui.bootstrap'])
+angular.module('appCtrl', ['ngCookies','ngResource','ngSanitize', 'angular-loading-bar', 'ngRoute', 'checklist-model','gridster', 'ngDragDrop','ui.bootstrap','angular-nicescroll'])
 /*.factory('modal',['$modal','gaTrack',function($modal,gaTrack){
     return{
         open: function(modalOptions){
