@@ -1,0 +1,228 @@
+<div class="container">
+	<div class="row centered-form">
+		<div class="col-xs-12 col-sm-8 col-md-4 col-sm-offset-2 col-md-offset-4" ng-show = "isLogin">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h3 class="panel-title">
+						Login to MyApp <small>Caption!</small>
+					</h3>
+				</div>
+				<div class="panel-body">
+					<form role="form">
+						<div class="row">
+							<div class="col-xs-10 col-sm-10 col-md-10">
+								<div class="form-group">
+									<input type="text" name="user_name" id="user_name" ng-model = "loginModel.userName"
+										class="form-control input-sm" placeholder="User Name">
+								</div>
+							</div>
+						</div>
+
+						
+						<div class="row">
+							<div class="col-xs-10 col-sm-10 col-md-10">
+								<div class="form-group">
+									<input type="password" name="password" id="password" ng-model = "loginModel.password"
+										class="form-control input-sm" placeholder="Password">
+								</div>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-xs-10 col-sm-10 col-md-10">
+								<input type="submit" value="Login" ng-click = "login();"
+							class="btn btn-info btn-block"></div>
+							<br/>
+						</div>
+						<div class="row">
+							<div class="col-xs-10 col-sm-10 col-md-10">&nbsp;</div>
+								
+							<br/>
+						</div>
+						
+						
+						<div class="row">
+							<div class="col-xs-4 col-sm-4 col-md-4">
+								 <a href="" ng-click = "enableRegister();" >New User ?</a>
+							</div>
+							<div class="col-xs-6 col-sm-6 col-md-6">
+								<a href="" ng-click = "enableForgotPassword()" >Forgot Password ?</a>
+							</div>
+						</div>
+						
+					</form>
+				</div>
+			</div>
+		</div>
+		<!-- for Registration form -->
+		<div class="col-xs-12 col-sm-8 col-md-4 col-sm-offset-2 col-md-offset-4" ng-show = "isRegister">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h3 class="panel-title">
+						Register Here <small>Caption!</small>
+					</h3>
+				</div>
+				<div class="panel-body">
+					<form role="form" id = "registerForm" name = "registerForm">
+						<div class="row">
+							<div class="col-xs-10 col-sm-10 col-md-10">
+								<div class="form-group">
+									<input type="text" name="userName" id="user_name" ng-model = "signUp.userName"
+										class="form-control input-sm" placeholder="User Name" ng-minlength = '6'
+										ng-maxlength = '15' ng-pattern="userNamePattern" required>
+									
+								</div>
+							</div>
+						</div>
+						
+						<div class="row">
+							<div class="col-xs-10 col-sm-10 col-md-10">
+								<div class="form-group">
+									<input type="text" name="password" id="password" ng-model = "signUp.password"
+										class="form-control input-sm" placeholder="Password" ng-minlength = '6'
+										ng-maxlength = '15' ng-pattern = "passwordPattern" required>
+									
+								</div>
+							</div>
+						</div>
+						
+						
+						<div class="row">
+							<div class="col-xs-10 col-sm-10 col-md-10">
+								<div class="form-group">
+									<input type="password" name="cofirmPassword" id="cofirmPassword" ng-model = "signUp.CofirmPassword"
+										class="form-control input-sm" placeholder="password Confirm" compare-to="signUp.password">
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-10 col-sm-10 col-md-10">
+								<div class="form-group">
+									<input type="number" name="mobile" id="mobile" ng-model = "signUp.mobile"
+										class="form-control input-sm" placeholder="Mobile No" ng-maxlength= "12">
+										<span class="error" ng-show="registerForm.mobile.$error.maxlength">Too long!</span>
+								</div>
+							</div>
+						</div>
+						
+						<div class="row">
+							<div class="col-xs-10 col-sm-10 col-md-10">
+								<div class="form-group">
+									<input type="email" name="email" id="email" ng-model = "signUp.email"
+										class="form-control input-sm" placeholder="Email" ng-pattern="emailFormat" required>
+								</div>
+							</div>
+						</div>
+						
+						<div class="row">
+							<div class="col-xs-10 col-sm-10 col-md-10">
+								<input type="submit" value="Sign Up" ng-click = "signUp();"
+							class="btn btn-info btn-block" ng-disabled="registerForm.$invalid"></div>
+							<br/>
+						</div>
+						
+						<div class="row">
+							<div class="col-xs-10 col-sm-10 col-md-10">&nbsp;</div>
+								
+							<br/>
+						</div>
+						<div class="row">
+							<div class="col-xs-4 col-sm-4 col-md-4">
+								<a href="" ng-click = "enableLogin()">Login ?</a>
+							</div>
+							<div class="col-xs-6 col-sm-6 col-md-6">
+								<a href="" ng-click = "enableForgotPassword()" >Forgot Password ?</a>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-10 col-sm-10 col-md-10">
+								<div class='msg-block' ng-show='registerForm.$error' style = "color: red;">
+									<span class='msg-error' ng-show='registerForm.cofirmPassword.$invalid'>
+										Passwords don't match. </span>
+										<span class="error" ng-show="registerForm.userName.$error.maxlength">User Name Too long!</span>
+									<span class="error" ng-show="registerForm.userName.$error.minlength">User Name Too Small!</span>
+									<span class="error" ng-show="registerForm.password.$error.maxlength"> Password Too long!</span>
+									<span class="error" ng-show="registerForm.password.$error.minlength">Password Too Small!</span>
+									<span class="error" ng-show="registerForm.email.$error.pattern">Enter valid email!</span>
+									<span class="error" ng-show="registerForm.userName.$error.pattern">Username must be letters and numbers only.</span>
+									<span class="error" ng-show="registerForm.password.$error.pattern">Password must be letters and numbers only.</span>
+								</div>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+		<!-- forgot password -->
+		<div class="col-xs-12 col-sm-8 col-md-4 col-sm-offset-2 col-md-offset-4" ng-show = "isForgetPassword">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h3 class="panel-title">
+						Forgot Password <small>?</small>
+					</h3>
+				</div>
+				<div class="panel-body">
+					<form role="form">
+						<div class="row">
+							<div class="col-xs-10 col-sm-10 col-md-10">
+								<div class="form-group">
+									<input type="text" name="user_name" id="user_name" ng-model = "loginModel.userName"
+										class="form-control input-sm" placeholder="User Name">
+								</div>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-xs-10 col-sm-10 col-md-10">
+								<div class="form-group">
+									<input type="text" name="emailOrMobile" id="emailOrPassword" ng-model = "loginModel.emailOrPassword"
+										class="form-control input-sm" placeholder="Email or Mobile No">
+								</div>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-xs-10 col-sm-10 col-md-10">
+								<input type="submit" value="Validate" ng-click = "validatePassword();"
+							class="btn btn-info btn-block"></div>
+							<br/>
+						</div>
+						<div class="row">
+							<div class="col-xs-10 col-sm-10 col-md-10">&nbsp;</div>
+								
+							<br/>
+						</div>
+						
+						
+						<div class="row">
+							<div class="col-xs-4 col-sm-4 col-md-4">
+								 <a href="" ng-click = "enableRegister();" >New User ?</a>
+							</div>
+								
+							<div class="col-xs-6 col-sm-6 col-md-6">
+								<a href="" ng-click = "enableLogin()">Login ?</a>
+							</div>
+						</div>
+						
+					</form>
+				</div>
+			</div>
+		</div>
+		
+	</div>
+</div>
+
+<style>
+ body {
+	background-color: #525252;
+}
+/*
+.centered-form {
+	margin-top: 60px;
+}
+
+.centered-form .panel {
+	background: rgba(255, 255, 255, 0.8);
+	box-shadow: rgba(0, 0, 0, 0.3) 20px 20px 20px;
+}
+ */</style>
