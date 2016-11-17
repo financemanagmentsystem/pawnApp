@@ -41,8 +41,9 @@
 		 <script src="<c:url value='/static/js/api/Externals/angularjs/angular-animate.min.js'/>"></script>
 		 <script src="<c:url value='/static/js/api/Externals/loading-bar.min.js'/>"></script>
 		 <script src="<c:url value='/static/js/api/Externals/checklist-model.js'/>"></script>
-		 <script src="<c:url value='/static/js/api/Externals/ui-bootstrap-tpls-0.12.0.js'/>"></script>
+		 <%-- <script src="<c:url value='/static/js/api/Externals/ui-bootstrap-tpls-0.12.0.js'/>"></script> --%>
 		 <script src="<c:url value='/static/js/api/angular-nicescroll.js'/>"></script>
+		 <script src="<c:url value='/static/js/api/ui-bootstrap-tpls-2.2.0.js'/>"></script>
 					  
 		  <script src="<c:url value='/static/js/api/jquery.js'/>"></script>
 		  <script src="<c:url value='/static/js/api/jquery.nicescroll.js'/>"></script>

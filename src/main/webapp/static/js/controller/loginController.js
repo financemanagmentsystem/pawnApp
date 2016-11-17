@@ -1,5 +1,5 @@
 angular.module('appCtrl', ['ngCookies','ngResource','ngSanitize', 'angular-loading-bar', 'ngRoute', 'checklist-model','gridster', 'ngDragDrop','ui.bootstrap','angular-nicescroll'])
-/*.factory('modal',['$modal','gaTrack',function($modal,gaTrack){
+.factory('modal',['$modal','gaTrack',function($modal,gaTrack){
     return{
         open: function(modalOptions){
             gaTrack.track(modalOptions.templateUrl);
@@ -48,7 +48,7 @@ angular.module('appCtrl', ['ngCookies','ngResource','ngSanitize', 'angular-loadi
         }
     }
 }])
-*/
+
 .config(['$routeProvider',
          function($routeProvider) {
 	$routeProvider.
