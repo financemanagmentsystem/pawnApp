@@ -26,7 +26,7 @@ angular.module('appCtrl').controller('AdminController',['$scope', '$http', '$loc
     
     $scope.addCustomer = function(){
     	
-    	var customerModal = modal.open({
+    	/*var customerModal = modal.open({
     		
     		    templateUrl: 'static/templates/modal_password-forgot.html',
     		    constroller : 'AdminController',
@@ -36,7 +36,9 @@ angular.module('appCtrl').controller('AdminController',['$scope', '$http', '$loc
                 scope: $scope
             
     		
-    	})
+    	})*/
+    	$location.path("/client/registration" );
+    	
     	
     	
     }

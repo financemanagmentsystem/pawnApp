@@ -1,0 +1,348 @@
+<!-- for Registration form -->
+<div class="col-xs-10 col-sm-10 col-md-10 col-sm-offset-1">
+	<div class="col-xs-6 col-sm-6 col-md-6">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title">Client Info</h3>
+			</div>
+			<div class="panel-body my-scroll-area fill" style ="height : 595px;" ng-nicescroll
+				nice-option="{cursorcolor: 'blue'}">
+				<form role="form" id="clientRegisterForm" name="clientRegisterForm">
+					<div class="row">
+						<div class="col-xs-5 col-sm-5 col-md-5">
+							<div class="form-group">
+								<input type="text" name="firstName" id="first_name"
+									ng-model="clientRegister.firstName"
+									class="form-control input-sm" placeholder="Fist Name" required>
+							</div>
+						</div>
+						<div class="col-xs-5 col-sm-5 col-md-5">
+							<div class="form-group">
+								<input type="text" name="lastName" id="last_name"
+									ng-model="clientRegister.lastName"
+									class="form-control input-sm" placeholder="Last Name" required>
+							</div>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-xs-10 col-sm-10 col-md-10">
+							<div class="form-group">
+								<input type="text" name="fatherName" id="add_line2"
+									ng-model="clientRegister.fatherName"
+									class="form-control input-sm" placeholder="Father Name"
+									required>
+							</div>
+						</div>
+					</div>
+
+
+					<div class="row">
+						<div class="col-xs-10 col-sm-10 col-md-10">
+							<div class="form-group">
+								<input type="number" name="mobile" id="mobile"
+									ng-model="clientRegister.mobile" class="form-control input-sm"
+									placeholder="Mobile" required>
+							</div>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-xs-4 col-sm-4 col-md-4">
+							<div class="form-group">
+								<input type="select" name="aadhar" id="idType"
+									ng-model="clientRegister.idType" class="form-control input-sm"
+									placeholder="ID Number" required>
+							</div>
+						</div>
+						<div class="col-xs-6 col-sm-6 col-md-6">
+							<div class="form-group">
+								<input type="text" name="aadhar" id="aadhar"
+									ng-model="clientRegister.aadhar" class="form-control input-sm"
+									placeholder="ID Number" required>
+							</div>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-xs-10 col-sm-10 col-md-10">
+							<div class="form-group">
+								<input type="text" name="addLine1" id="add_line1"
+									ng-model="clientRegister.addLine1"
+									class="form-control input-sm" placeholder="Address Line 1"
+									required>
+							</div>
+						</div>
+					</div>
+
+
+					<div class="row">
+						<div class="col-xs-10 col-sm-10 col-md-10">
+							<div class="form-group">
+								<input type="text" name="city" id="city"
+									ng-model="clientRegister.city" class="form-control input-sm"
+									placeholder="City or Town" required>
+							</div>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-xs-5 col-sm-5 col-md-5">
+							<div class="form-group">
+								<input type="text" name="country" id="country"
+									ng-model="clientRegister.country" class="form-control input-sm"
+									placeholder="Country" required>
+								<!-- <select ng-model="clientRegister.country" ng-options="value.id as value.country for (key,value) in countries "></select> -->
+							</div>
+						</div>
+						<div class="col-xs-5 col-sm-5 col-md-5">
+							<div class="form-group">
+								<input type="text" name="state" id="state"
+									ng-model="clientRegister.state" class="form-control input-sm"
+									placeholder="State" required>
+								<!-- <select ng-model="clientRegister.state" ng-options="value.id as value.country for (key,value) in clientRegister.country "></select> -->
+							</div>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-xs-5 col-sm-5 col-md-5">
+							<input type="text" name="zipCode" id="zipCode"
+								ng-model="clientRegister.zipCode" class="form-control input-sm"
+								placeholder="Pin / Zip Code" required>
+						</div>
+						<div class="col-xs-5 col-sm-5 col-md-5">
+
+							<input type="radio" name="gender" value="male" /> Male &nbsp; <input
+								type="radio" name="gender" value="female" /> Female
+
+						</div>
+
+					</div>
+
+					<div class="row">
+						<br />
+						<div class="col-xs-12 col-sm-12 col-md-12">
+							<div class="panel-heading">
+								<h3 class="panel-title">Referral Info</h3>
+							</div>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-xs-5 col-sm-5 col-md-5">
+							<div class="form-group">
+								<input type="text" name="firstName" id="first_name"
+									ng-model="clientRegister.firstName"
+									class="form-control input-sm" placeholder="Fist Name" required>
+							</div>
+						</div>
+						<div class="col-xs-5 col-sm-5 col-md-5">
+							<div class="form-group">
+								<input type="text" name="lastName" id="last_name"
+									ng-model="clientRegister.lastName"
+									class="form-control input-sm" placeholder="Last Name" required>
+							</div>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-xs-10 col-sm-10 col-md-10">
+							<div class="form-group">
+								<input type="number" name="mobile" id="mobile"
+									ng-model="clientRegister.mobile" class="form-control input-sm"
+									placeholder="Mobile" required>
+							</div>
+						</div>
+					</div>
+
+
+					<div class="row">
+						<div class="col-xs-10 col-sm-10 col-md-10">
+							<div class='msg-block' ng-show='registerForm.$error'
+								style="color: red;">
+								<span class='msg-error'
+									ng-show='registerForm.cofirmPassword.$invalid'>
+									Passwords don't match. </span> <span class="error"
+									ng-show="registerForm.userName.$error.maxlength">User
+									Name Too long!</span> <span class="error"
+									ng-show="registerForm.userName.$error.minlength">User
+									Name Too Small!</span> <span class="error"
+									ng-show="registerForm.password.$error.maxlength">
+									Password Too long!</span> <span class="error"
+									ng-show="registerForm.password.$error.minlength">Password
+									Too Small!</span> <span class="error"
+									ng-show="registerForm.email.$error.pattern">Enter valid
+									email!</span> <span class="error"
+									ng-show="registerForm.userName.$error.pattern">Username
+									must be letters and numbers only.</span> <span class="error"
+									ng-show="registerForm.password.$error.pattern">Password
+									must be letters and numbers only.</span>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-xs-10 col-sm-10 col-md-10">
+							<input type="submit" value="Add User" ng-click=""
+								class="btn btn-info btn-block">
+						</div>
+						<br /> <br /> <br />
+
+					</div>
+
+
+				</form>
+			</div>
+		</div>
+	</div>
+	<div class="col-xs-6 col-sm-6 col-md-6">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title">Loan Info</h3>
+			</div>
+			<div class="panel-body my-scroll-area" style ="height : 265px;" ng-nicescroll
+				nice-option="{cursorcolor: 'blue'}">
+				<form role="form" id="registerForm" name="registerForm">
+					<div class="row">
+						<div class="col-xs-10 col-sm-10 col-md-10">
+							<div class="form-group">
+								<input type="text" name="userName" id="user_name"
+									ng-model="signUp.userName" class="form-control input-sm"
+									placeholder="User Name" ng-minlength='6' ng-maxlength='15'
+									ng-pattern="userNamePattern" required>
+
+							</div>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-xs-10 col-sm-10 col-md-10">
+							<div class="form-group">
+								<input type="text" name="password" id="password"
+									ng-model="signUp.password" class="form-control input-sm"
+									placeholder="Password" ng-minlength='6' ng-maxlength='15'
+									ng-pattern="passwordPattern" required>
+
+							</div>
+						</div>
+					</div>
+
+
+					<div class="row">
+						<div class="col-xs-10 col-sm-10 col-md-10">
+							<div class="form-group">
+								<input type="password" name="cofirmPassword" id="cofirmPassword"
+									ng-model="signUp.CofirmPassword" class="form-control input-sm"
+									placeholder="password Confirm" compare-to="signUp.password">
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-xs-10 col-sm-10 col-md-10">
+							<div class="form-group">
+								<input type="number" name="mobile" id="mobile"
+									ng-model="signUp.mobile" class="form-control input-sm"
+									placeholder="Mobile No" ng-maxlength="12"> <span
+									class="error" ng-show="registerForm.mobile.$error.maxlength">Too
+									long!</span>
+							</div>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-xs-10 col-sm-10 col-md-10">
+							<div class="form-group">
+								<input type="email" name="email" id="email"
+									ng-model="signUp.email" class="form-control input-sm"
+									placeholder="Email" ng-pattern="emailFormat" required>
+							</div>
+						</div>
+					</div>
+					
+					
+				</form>
+			</div>
+		</div>
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title">Ornament Info</h3>
+			</div>
+			<div class="panel-body my-scroll-area fill" style ="height : 265px;" ng-nicescroll
+				nice-option="{cursorcolor: 'blue'}">
+				<form role="form" id="registerForm" name="registerForm">
+					<div class="row">
+						<div class="col-xs-10 col-sm-10 col-md-10">
+							<div class="form-group">
+								<input type="text" name="userName" id="user_name"
+									ng-model="signUp.userName" class="form-control input-sm"
+									placeholder="User Name" ng-minlength='6' ng-maxlength='15'
+									ng-pattern="userNamePattern" required>
+
+							</div>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-xs-10 col-sm-10 col-md-10">
+							<div class="form-group">
+								<input type="text" name="password" id="password"
+									ng-model="signUp.password" class="form-control input-sm"
+									placeholder="Password" ng-minlength='6' ng-maxlength='15'
+									ng-pattern="passwordPattern" required>
+
+							</div>
+						</div>
+					</div>
+
+
+					<div class="row">
+						<div class="col-xs-10 col-sm-10 col-md-10">
+							<div class="form-group">
+								<input type="password" name="cofirmPassword" id="cofirmPassword"
+									ng-model="signUp.CofirmPassword" class="form-control input-sm"
+									placeholder="password Confirm" compare-to="signUp.password">
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-xs-10 col-sm-10 col-md-10">
+							<div class="form-group">
+								<input type="number" name="mobile" id="mobile"
+									ng-model="signUp.mobile" class="form-control input-sm"
+									placeholder="Mobile No" ng-maxlength="12"> <span
+									class="error" ng-show="registerForm.mobile.$error.maxlength">Too
+									long!</span>
+							</div>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-xs-10 col-sm-10 col-md-10">
+							<div class="form-group">
+								<input type="email" name="email" id="email"
+									ng-model="signUp.email" class="form-control input-sm"
+									placeholder="Email" ng-pattern="emailFormat" required>
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+
+	</div>
+</div>
+<style>
+body {
+	background-color: #525252;
+}
+
+.centered-form {
+	margin-top: 60px;
+}
+
+.centered-form .panel {
+	background: rgba(255, 255, 255, 0.8);
+	box-shadow: rgba(0, 0, 0, 0.3) 20px 20px 20px;
+}
+
+</style>

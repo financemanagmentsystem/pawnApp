@@ -28,8 +28,9 @@
 		</div>
 
     </div>
-		<!-- <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script> -->
-		 <script src="<c:url value='/static/js/api/angularjs/angular.js' />"></script>
+		<!-- <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.12.0/ui-bootstrap-tpls.min.js"></script>
+		 --> <script src="<c:url value='/static/js/api/angularjs/angular.js' />"></script>
 		 <script src="<c:url value='/static/js/api/angularjs/angular-route.min.js' />"></script>
 		 
 		 <script src="<c:url value='/static/js/api/angularjs/angular-cookies.min.js'/>"></script>
@@ -61,5 +62,6 @@
 	  <script src="<c:url value='/static/js/controller/loginController.js' />"></script>
 	   <script src="<c:url value='/static/js/controller/loginCtrl.js' />"></script>
 	   <script src="<c:url value='/static/js/controller/adminCtrl.js' />"></script>
+	   <script src="<c:url value='/static/js/controller/clientRegisterCtrl.js' />"></script>
   </body>
 </html>

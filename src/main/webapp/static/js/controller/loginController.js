@@ -65,11 +65,12 @@ angular.module('appCtrl', ['ngCookies','ngResource','ngSanitize', 'angular-loadi
 		templateUrl: 'static/templates/adminDashboard.html',
 		controller: 'AdminController',
 		title: 'Admin Dashboard'
-	})/*.when('/static/templates/modals/modal_password-forgot.html', {
-		templateUrl: 'static/templates/modals/modal_password-forgot.html',
-		controller: 'AdminController',
-		title: 'Admin Dashboard'
-	})*/.
+	}).
+	when('/client/registration', {
+		templateUrl: 'static/templates/clientRegistrationForm.html',
+		controller: 'ClientRegistrationController',
+		title: 'Client Registration Form'
+	}).
 	
 	otherwise({
 		redirectTo: '/Login'
