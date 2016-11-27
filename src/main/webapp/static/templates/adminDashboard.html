@@ -1,6 +1,6 @@
 <div class="row">
-	<div class="col-md-12">
-		<div class="col-md-6">
+	<div class="col-lg-12">
+		<div class="col-lg-6">
 			<div class="panel panel-default">
 				<div class="panel-heading">
 					<h3 class="panel-title">Customers Panel</h3>
@@ -46,19 +46,17 @@
 									<th>ID NUMBER</th>
 									<th>MOBILE</th>
 									<th>CITY</th>
-									<th>LOAN</th>
+									<th>REF NAME</th>
 								</tr>
 									</thead>
 									<tbody>
-										
-										<tr ng-repeat="customer in customersList">
-											<th><a href = "" >{{customer.customerName}}</a></th>
-											<td ><a href = "" >{{customer.idNumber}}</a></td>
-											<td ><a href = "" >{{customer.mobileNo}}</a></td>
-											<td ><a href = "" >{{customer.city}}</a></td>
-											<td ><a href = "" >{{customer.loanId}}</a></td>
+										<tr ng-repeat="client in clientList">
+											<td><a ng-click="getClientLoans(client.clientId)">{{client.firstName}}&nbsp;{{client.lastName}}</a></th>
+											<td >{{client.idValue}}</td>
+											<td >{{client.clientMobileNo}}</td>
+											<td >{{client.city}}</td>
+											<td >{{client.referralFName}} &nbsp; {{client.referralLName}}</td>
 										</tr>
-										
 									</tbody>
 								</table>
 							</div>
@@ -68,7 +66,7 @@
 			</div>
 
 		</div>
-		<div class="col-md-6">
+		<div class="col-lg-6">
 			<div class="row">
 				<div class="col-md-12">
 					<div class="panel panel-default">
@@ -80,26 +78,24 @@
 								<div class="panel-body fill ">
 									<table class="table table-sm table-striped">
 										<tr>
-											<th>NAME</th>
-											<th>ID NUMBER</th>
-											<th>MOBILE</th>
-											<th>CITY</th>
-											<th>LOAN</th>
+											<th>AMOUNT</th>
+											<th>PERIOD</h>
+											<th>PERIOD TYPE</th>
+											<th>INTREST</th>
+											<th>?</th>
 										</tr>
 									</table>
 									<div class="my-scroll-area fill" ng-nicescroll
 										nice-option="{cursorcolor: 'red'}">
 										<table class="table table-sm table-striped">
 											<tbody>
-												<tr ng-repeat="customer in customersList">
-													<th ng-bind="customer.customerName"></th>
-													<td ng-bind="customer.idNumber"></td>
-													<td ng-bind="customer.mobileNo"></td>
-													<td ng-bind="customer.city"></td>
-													<td ng-bind="customer.loanId"></td>
-													<td ng-bind="customer.idNumber"></td>
+												<tr ng-repeat="clientLoan in clientLoanList | filter : clientFilter">
+													<td ng-bind="clientLoan.loanAmount"></th>
+													<td ng-bind="clientLoan.loanPeriod"></td>
+													<td ng-bind="clientLoan.periodType"></td>
+													<td ng-bind="clientLoan.rateOfIntrest"></td>
+													<td ng-bind="clientLoan.id"></td>
 												</tr>
-
 											</tbody>
 										</table>
 									</div>
@@ -121,24 +117,25 @@
 								<div class="panel-body fill ">
 									<table class="table table-sm table-striped">
 										<tr>
+											<th>METAL</th>
 											<th>NAME</th>
-											<th>ID NUMBER</th>
-											<th>MOBILE</th>
-											<th>CITY</th>
-											<th>LOAN</th>
+											<th>QUALITY</th>
+											<th>QUANTITY</th>
+											<th>TYPE</th>
+											<th>VALUE</th>
 										</tr>
 									</table>
 									<div class="my-scroll-area fill" ng-nicescroll
 										nice-option="{cursorcolor: 'red'}">
 										<table class="table table-sm table-striped">
 											<tbody>
-												<tr ng-repeat="customer in customersList">
-													<th ng-bind="customer.customerName"></th>
-													<td ng-bind="customer.idNumber"></td>
-													<td ng-bind="customer.mobileNo"></td>
-													<td ng-bind="customer.city"></td>
-													<td ng-bind="customer.loanId"></td>
-													<td ng-bind="customer.idNumber"></td>
+												<tr ng-repeat="ornament in loanOrnamentList | filter : clientFilter">
+													<td ng-bind="ornament.ornamentMetal"></th>
+													<td ng-bind="ornament.ornamentName"></td>
+													<td ng-bind="ornament.ornamentQuality"></td>
+													<td ng-bind="ornament.ornamentQuantity"></td>
+													<td ng-bind="ornament.ornamentType"></td>
+													<td ng-bind="ornament.ornamentValue"></td>
 												</tr>
 											</tbody>
 										</table>

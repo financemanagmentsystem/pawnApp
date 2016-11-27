@@ -1,6 +1,6 @@
 <!-- for Registration form -->
-<div class="col-xs-10 col-sm-10 col-md-10 col-sm-offset-1">
-	<div class="col-xs-6 col-sm-6 col-md-6">
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
+	<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
 		<div class="panel panel-default">
 			<div class="panel-heading">
 				<h3 class="panel-title">Client Info</h3>
@@ -41,7 +41,7 @@
 						<div class="col-xs-10 col-sm-10 col-md-10">
 							<div class="form-group">
 								<input type="number" name="mobile" id="mobile"
-									ng-model="clientRegister.mobile" class="form-control input-sm"
+									ng-model="clientRegister.clientMobileNo" class="form-control input-sm"
 									placeholder="Mobile" required>
 							</div>
 						</div>
@@ -50,15 +50,15 @@
 					<div class="row">
 						<div class="col-xs-4 col-sm-4 col-md-4">
 							<div class="form-group">
-								<input type="select" name="aadhar" id="idType"
-									ng-model="clientRegister.idType" class="form-control input-sm"
-									placeholder="ID Number" required>
+									<select ng-model="clientRegister.idType"
+										ng-options="unit.id as unit.name for unit in idTypeList"
+										style="width: 145px; height: 30px"  required></select>
 							</div>
 						</div>
 						<div class="col-xs-6 col-sm-6 col-md-6">
 							<div class="form-group">
-								<input type="text" name="aadhar" id="aadhar"
-									ng-model="clientRegister.aadhar" class="form-control input-sm"
+								<input type="text" name="idValue" id="idValue"
+									ng-model="clientRegister.idValue" class="form-control input-sm"
 									placeholder="ID Number" required>
 							</div>
 						</div>
@@ -68,7 +68,7 @@
 						<div class="col-xs-10 col-sm-10 col-md-10">
 							<div class="form-group">
 								<input type="text" name="addLine1" id="add_line1"
-									ng-model="clientRegister.addLine1"
+									ng-model="clientRegister.address"
 									class="form-control input-sm" placeholder="Address Line 1"
 									required>
 							</div>
@@ -113,8 +113,8 @@
 						</div>
 						<div class="col-xs-5 col-sm-5 col-md-5">
 
-							<input type="radio" name="gender" value="male" /> Male &nbsp; <input
-								type="radio" name="gender" value="female" /> Female
+							<input type="radio" name="gender" value="male" ng-model = "clientRegister.gender" /> Male &nbsp; <input
+								type="radio" name="gender" value="female" ng-model = "clientRegister.gender" /> Female
 
 						</div>
 
@@ -132,15 +132,15 @@
 					<div class="row">
 						<div class="col-xs-5 col-sm-5 col-md-5">
 							<div class="form-group">
-								<input type="text" name="firstName" id="first_name"
-									ng-model="clientRegister.firstName"
+								<input type="text" name="referralFName" id="referralFName"
+									ng-model="clientRegister.referralFName"
 									class="form-control input-sm" placeholder="Fist Name" required>
 							</div>
 						</div>
 						<div class="col-xs-5 col-sm-5 col-md-5">
 							<div class="form-group">
-								<input type="text" name="lastName" id="last_name"
-									ng-model="clientRegister.lastName"
+								<input type="text" name="referralLName" id="referralLName"
+									ng-model="clientRegister.referralLName"
 									class="form-control input-sm" placeholder="Last Name" required>
 							</div>
 						</div>
@@ -149,8 +149,8 @@
 					<div class="row">
 						<div class="col-xs-10 col-sm-10 col-md-10">
 							<div class="form-group">
-								<input type="number" name="mobile" id="mobile"
-									ng-model="clientRegister.mobile" class="form-control input-sm"
+								<input type="number" name="referralMobileNo" id="referralMobileNo"
+									ng-model="clientRegister.referralMobileNo" class="form-control input-sm"
 									placeholder="Mobile" required>
 							</div>
 						</div>
@@ -162,28 +162,16 @@
 							<div class='msg-block' ng-show='registerForm.$error'
 								style="color: red;">
 								<span class='msg-error'
-									ng-show='registerForm.cofirmPassword.$invalid'>
-									Passwords don't match. </span> <span class="error"
 									ng-show="registerForm.userName.$error.maxlength">User
 									Name Too long!</span> <span class="error"
 									ng-show="registerForm.userName.$error.minlength">User
-									Name Too Small!</span> <span class="error"
-									ng-show="registerForm.password.$error.maxlength">
-									Password Too long!</span> <span class="error"
-									ng-show="registerForm.password.$error.minlength">Password
-									Too Small!</span> <span class="error"
-									ng-show="registerForm.email.$error.pattern">Enter valid
-									email!</span> <span class="error"
-									ng-show="registerForm.userName.$error.pattern">Username
-									must be letters and numbers only.</span> <span class="error"
-									ng-show="registerForm.password.$error.pattern">Password
-									must be letters and numbers only.</span>
+									Name Too Small!</span>
 							</div>
 						</div>
 					</div>
 					<div class="row">
 						<div class="col-xs-10 col-sm-10 col-md-10">
-							<input type="submit" value="Add User" ng-click=""
+							<input type="submit" value="Add User" ng-click="formJsonData()"
 								class="btn btn-info btn-block">
 						</div>
 						<br /> <br /> <br />
@@ -195,21 +183,21 @@
 			</div>
 		</div>
 	</div>
-	<div class="col-xs-6 col-sm-6 col-md-6">
+	<!--                              Loan onfo                                    ----------------- -->
+	<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
 		<div class="panel panel-default">
 			<div class="panel-heading">
 				<h3 class="panel-title">Loan Info</h3>
 			</div>
-			<div class="panel-body my-scroll-area" style ="height : 265px;" ng-nicescroll
+			<div class="panel-body my-scroll-area" style ="height : 200px;" ng-nicescroll
 				nice-option="{cursorcolor: 'blue'}">
-				<form role="form" id="registerForm" name="registerForm">
+				<form role="form" id="loanForm" name="laonForm">
 					<div class="row">
 						<div class="col-xs-10 col-sm-10 col-md-10">
 							<div class="form-group">
-								<input type="text" name="userName" id="user_name"
-									ng-model="signUp.userName" class="form-control input-sm"
-									placeholder="User Name" ng-minlength='6' ng-maxlength='15'
-									ng-pattern="userNamePattern" required>
+								<input type="number" name="loanAmount" id="laonAmount"
+									ng-model="clientLoan.loanAmount" class="form-control input-sm"
+									placeholder="Loan Amount" ng-minlength='3' required>
 
 							</div>
 						</div>
@@ -218,10 +206,9 @@
 					<div class="row">
 						<div class="col-xs-10 col-sm-10 col-md-10">
 							<div class="form-group">
-								<input type="text" name="password" id="password"
-									ng-model="signUp.password" class="form-control input-sm"
-									placeholder="Password" ng-minlength='6' ng-maxlength='15'
-									ng-pattern="passwordPattern" required>
+								<input type="text" name="rateOfIntrest" id="rateOfIntrest"
+									ng-model="clientLoan.rateOfIntrest" class="form-control input-sm"
+									placeholder="Rate of Intrest"  required>
 
 							</div>
 						</div>
@@ -229,37 +216,23 @@
 
 
 					<div class="row">
-						<div class="col-xs-10 col-sm-10 col-md-10">
+						<div class="col-xs-5 col-sm-5 col-md-5">
 							<div class="form-group">
-								<input type="password" name="cofirmPassword" id="cofirmPassword"
-									ng-model="signUp.CofirmPassword" class="form-control input-sm"
-									placeholder="password Confirm" compare-to="signUp.password">
+								<input type="number" name="loanPeriod" id="loanPeriod"
+									ng-model="clientLoan.loanPeriod"
+									class="form-control input-sm" placeholder="Loan Period">
+							</div>
+						</div>
+						<div class="col-xs-5 col-sm-5 col-md-5">
+							<div class="form-group">
+								<div class="dropdown">
+									<select ng-model="clientLoan.periodType"
+										ng-options="unit.id as unit.name for unit in periodIn"
+										style="width: 145px; height: 30px"></select>
+								</div>
 							</div>
 						</div>
 					</div>
-					<div class="row">
-						<div class="col-xs-10 col-sm-10 col-md-10">
-							<div class="form-group">
-								<input type="number" name="mobile" id="mobile"
-									ng-model="signUp.mobile" class="form-control input-sm"
-									placeholder="Mobile No" ng-maxlength="12"> <span
-									class="error" ng-show="registerForm.mobile.$error.maxlength">Too
-									long!</span>
-							</div>
-						</div>
-					</div>
-
-					<div class="row">
-						<div class="col-xs-10 col-sm-10 col-md-10">
-							<div class="form-group">
-								<input type="email" name="email" id="email"
-									ng-model="signUp.email" class="form-control input-sm"
-									placeholder="Email" ng-pattern="emailFormat" required>
-							</div>
-						</div>
-					</div>
-					
-					
 				</form>
 			</div>
 		</div>
@@ -267,64 +240,113 @@
 			<div class="panel-heading">
 				<h3 class="panel-title">Ornament Info</h3>
 			</div>
-			<div class="panel-body my-scroll-area fill" style ="height : 265px;" ng-nicescroll
+			<div class="panel-body my-scroll-area fill" style ="height : 335px;" ng-nicescroll
 				nice-option="{cursorcolor: 'blue'}">
-				<form role="form" id="registerForm" name="registerForm">
+				<form role="form" id="ornamentForm" name="ornamentForm">
 					<div class="row">
 						<div class="col-xs-10 col-sm-10 col-md-10">
 							<div class="form-group">
-								<input type="text" name="userName" id="user_name"
-									ng-model="signUp.userName" class="form-control input-sm"
-									placeholder="User Name" ng-minlength='6' ng-maxlength='15'
-									ng-pattern="userNamePattern" required>
+								<input type="text" name="ornamentName" id="ornamentName"
+									ng-model="clientOrnament.ornamentName" class="form-control input-sm"
+									placeholder="Ornament Name"  required>
 
 							</div>
 						</div>
 					</div>
 
 					<div class="row">
-						<div class="col-xs-10 col-sm-10 col-md-10">
+						<div class="col-xs-5 col-sm-5 col-md-5">
 							<div class="form-group">
-								<input type="text" name="password" id="password"
-									ng-model="signUp.password" class="form-control input-sm"
-									placeholder="Password" ng-minlength='6' ng-maxlength='15'
-									ng-pattern="passwordPattern" required>
-
+								<div class="dropdown">
+									<select ng-model="clientOrnament.ornamentMetal"
+										ng-options="unit.id as unit.name for unit in metalTypes"
+										style="width: 145px; height: 30px"  required></select>
+								</div>
 							</div>
 						</div>
-					</div>
-
-
-					<div class="row">
-						<div class="col-xs-10 col-sm-10 col-md-10">
+						<div class="col-xs-5 col-sm-5 col-md-5">
 							<div class="form-group">
-								<input type="password" name="cofirmPassword" id="cofirmPassword"
-									ng-model="signUp.CofirmPassword" class="form-control input-sm"
-									placeholder="password Confirm" compare-to="signUp.password">
-							</div>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-xs-10 col-sm-10 col-md-10">
-							<div class="form-group">
-								<input type="number" name="mobile" id="mobile"
-									ng-model="signUp.mobile" class="form-control input-sm"
-									placeholder="Mobile No" ng-maxlength="12"> <span
-									class="error" ng-show="registerForm.mobile.$error.maxlength">Too
-									long!</span>
+								<div class="dropdown">
+									<select ng-model="clientOrnament.ornamentType"
+										ng-options="unit.id as unit.name for unit in ornamentTypes"
+										style="width: 145px; height: 30px"  required></select>
+								</div>
 							</div>
 						</div>
 					</div>
 
 					<div class="row">
-						<div class="col-xs-10 col-sm-10 col-md-10">
+						
+							<div class="col-xs-5 col-sm-5 col-md-5">
+								<div class="form-group">
+									<input type="text" name="ornamentQuantity"
+										id="ornamentQuantity" ng-model="clientOrnament.ornamentQuantity"
+										class="form-control input-sm" placeholder="Ornament Quantity"  required>
+								</div>
+							</div>
+							<div class="col-xs-5 col-sm-5 col-md-5">
+								<div class="form-group">
+									<input type="text" name="ornamentQuality" id="ornamentQuality"
+										ng-model="clientOrnament.ornamentQuality"
+										class="form-control input-sm" placeholder="Ornament Quality"  required>
+								</div>
+							</div>
+						
+					</div>
+
+					<div class="row">
+						<div class="col-xs-6 col-sm-6 col-md-6">
 							<div class="form-group">
-								<input type="email" name="email" id="email"
-									ng-model="signUp.email" class="form-control input-sm"
-									placeholder="Email" ng-pattern="emailFormat" required>
+								<input type="text" name="ornamentValue" id="ornamentValue"
+										ng-model="clientOrnament.ornamentValue"
+										class="form-control input-sm" placeholder="Ornament Value"  required>
+							</div>
+						</div>
+						<div class="col-xs-4 col-sm-4 col-md-4">
+							<div class="form-group">
+								<input type="button" value="Add Ornament" ng-click="addOrnament()" ng-disabled="ornamentForm.$invalid"
+								class="btn btn-info btn-block" style = "border-bottom-width: 0px; font-size:10px">
 							</div>
 						</div>
 					</div>
+					<div class="row">
+					  <div class="col-xs-12 col-sm-12 col-md-12">
+						<div class="my-scroll-area" ng-nicescroll style = "min-height: 40%;height: 40%; width:100%"
+							nice-option="{cursorcolor: 'red'}">
+						<table class="table table-fixed">
+							<tbody>
+							<tr>
+								<th>NAME</th>
+								<th>QUANTITY</th>
+								<th>QUALITY</th>
+								<th>VALUE</th>
+								<th>TYPE</th>
+								<th>METAL</th>
+							</tr>
+							<tbody>
+						<!-- </table> -->
+						<!-- <div class="my-scroll-area" ng-nicescroll style = "min-height: 20%;height: 20%;"
+							nice-option="{cursorcolor: 'red'}">
+							<table class="table table-fixed">
+						 -->		<tbody>
+						 			<tr ng-repeat="ornament in ornamentList">
+										<td ng-bind="ornament.ornamentName" style = "width:20%; word-wrap:break-word;"></th>
+										<td ng-bind="ornament.ornamentQuantity"></td>
+										<td ng-bind="ornament.ornamentQuality"></td>
+										<td ng-bind="ornament.ornamentValue"></td>
+										<td ng-bind="ornament.ornamentType"></td>
+										<td ng-bind="ornament.ornamentMetal"></td>
+									</tr>
+
+								</tbody>
+							</table>
+
+						<!-- </div> -->
+						</div>
+						</div>
+					</div>
+
+
 				</form>
 			</div>
 		</div>
@@ -345,4 +367,9 @@ body {
 	box-shadow: rgba(0, 0, 0, 0.3) 20px 20px 20px;
 }
 
+.table-fixed tbody {
+  height: 40%;
+  overflow-y: auto;
+  width: 100%;
+}
 </style>

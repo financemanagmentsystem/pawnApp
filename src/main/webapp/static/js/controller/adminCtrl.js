@@ -4,7 +4,103 @@ angular.module('appCtrl').controller('AdminController',['$scope', '$http', '$loc
     var REST_SERVICE_URI = baseUrl+'login/';
     console.log(REST_SERVICE_URI);
     
-    $scope.positions = ['All','QB','RB','WR','TE','DEF','K'];
+   
+    var deferred = $q.defer();
+	//console.log(data);
+	$http.get(baseUrl+'/client/getAll')
+    .then(
+    function (response) {
+    	$scope.clientList = response.data;
+        deferred.resolve(response.data);
+    //	alert("success");
+    },
+    function(errResponse){
+        console.error('Error while creating User');
+        deferred.reject(errResponse);
+    });
+	
+	$http.get(baseUrl+'/client/loan/getAll')
+    .then(
+    function (response) {
+    	$scope.clientLoanList = response.data;
+    	console.log($scope.clientLoanList);
+        deferred.resolve(response.data);
+    //	alert("success");
+    },
+    function(errResponse){
+        console.error('Error while creating User');
+        deferred.reject(errResponse);
+    });
+	
+	$http.get(baseUrl+'/client/loan/ornament/getAll')
+    .then(
+    function (response) {
+    	$scope.loanOrnamentList = response.data;
+    	console.log($scope.loanOrnamentList);
+        deferred.resolve(response.data);
+    //	alert("success");
+    },
+    function(errResponse){
+        console.error('Error while creating User');
+        deferred.reject(errResponse);
+    });
+	
+	$scope.isClientSelected = false;
+	$scope.selectedClientId = 0;
+	$scope.clientFilter = function(item) {
+		
+		if($scope.isClientSelected) {
+			//console.log(item);
+			if($scope.selectedClientId == item.clientId.clientId)
+				return true;
+			else
+				return false;
+		}	
+		return true;
+	}
+	
+	
+	
+	$scope.getClientLoans = function(clientId) {
+	//	console.log(clientId);
+		$scope.isClientSelected = true;
+		$scope.selectedClientId = clientId;
+	/*	$http.get(baseUrl+'/client/loan/getAll')
+	    .then(
+	    function (response) {
+	    	$scope.clientLoanList = response.data;
+	    	console.log($scope.clientLoanList);
+	        deferred.resolve(response.data);
+	    //	alert("success");
+	    },
+	    function(errResponse){
+	        console.error('Error while creating User');
+	        deferred.reject(errResponse);
+	    });*/
+		
+	}
+	
+	
+	
+	$scope.loanOrnament = function(clientId) {
+		/*$http.get(baseUrl+'/client/loan/ornament/getAll')
+	    .then(
+	    function (response) {
+	    	$scope.loanOrnamentList = response.data;
+	    	console.log($scope.loanOrnamentList);
+	        deferred.resolve(response.data);
+	    //	alert("success");
+	    },
+	    function(errResponse){
+	        console.error('Error while creating User');
+	        deferred.reject(errResponse);
+	    });
+		*/
+	}
+	
+	
+	
+    
     
     $scope.customersList = [{customerName : "Mark", idNumber : "1", mobileNo : "234567", city : "hyd", loanId : "1"},
                             {customerName : "Mark", idNumber : "2", mobileNo : "1234", city : "ameerpet", loanId : "13"},
