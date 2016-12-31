@@ -59,6 +59,17 @@ angular.module('appCtrl').controller('AdminController',['$scope', '$http', '$loc
 		return true;
 	}
 	
+$scope.ornamentFilter = function(item) {
+		
+		if($scope.isClientSelected) {
+			//console.log(item);
+			if($scope.selectedClientId == item.loanId.clientId.clientId)
+				return true;
+			else
+				return false;
+		}	
+		return true;
+	}
 	
 	
 	$scope.getClientLoans = function(clientId) {
@@ -79,6 +90,8 @@ angular.module('appCtrl').controller('AdminController',['$scope', '$http', '$loc
 	    });*/
 		
 	}
+	
+	
 	
 	
 	
